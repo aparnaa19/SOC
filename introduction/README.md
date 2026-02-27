@@ -112,7 +112,11 @@ Integrate security testing into CI/CD pipelines and cloud deployments.
 
 A simplified workflow may look like:
 
-Alert Generated → SOC Triage → Investigation → Containment → Incident Response Escalation (if required)
+flowchart LR
+A[Alert Generated] --> B[SOC Triage]
+B --> C[Investigation]
+C --> D[Containment]
+D --> E[Incident Response Escalation if required]
 
 
 
