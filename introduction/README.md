@@ -117,7 +117,8 @@ flowchart LR
     A[Alert Generated] --> B[SOC Triage]
     B --> C[Investigation]
     C --> D[Containment]
-    D --> E[Incident Response Escalation (if required)]
+    D --> E[Incident Response Escalation if required]
+```
 
 
 
