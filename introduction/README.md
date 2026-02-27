@@ -113,12 +113,11 @@ Integrate security testing into CI/CD pipelines and cloud deployments.
 A simplified workflow may look like:
 
 ```mermaid
-%%{init: {'theme':'base', 'flowchart': {'curve': 'linear'}}}%%
-flowchart LR
+flowchart TD
     A[Alert Generated] --> B[SOC Triage]
     B --> C[Investigation]
     C --> D[Containment]
-    D --> E[Incident Response Escalation]
+    D --> E["Incident Response Escalation if required"]
 ```
 
 
