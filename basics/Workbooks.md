@@ -1,18 +1,13 @@
-# SOC Workbooks (Playbooks & Runbooks)
-
-## Overview
-
-SOC workbooks, also referred to as **playbooks**, **runbooks**, or **investigation workflows**, provide structured guidance for analysts when handling alerts and security incidents.
-
-These documents ensure investigations remain consistent, repeatable, and aligned with organizational response standards.
-
-Workbooks help analysts reduce response time by outlining predefined investigation steps and recommended actions.
+# SOC Workbooks 
+-  also called as playbooks/ runbooks/ investigation workflows
+-  provide structured guidance for analysts when handling alerts and security incidents
+-  aligned with organizational response standards
+-  help analysts reduce response time by outlining predefined investigation steps and recommended actions
 
 ---
-
-## Threat Intelligence Services
-
-Threat intelligence services provide context about indicators such as IP addresses, domains, URLs, and file hashes.
+Before getting to know more about workbooks we will go through certain terms to get an idea:
+## 1. Threat Intelligence Services
+- provide context about indicators such as IP addresses, domains, URLs, and file hashes.
 
 SOC analysts use threat intelligence platforms to:
 
@@ -30,9 +25,8 @@ Common examples include:
 
 ---
 
-## Anonymization Detection Services
-
-Anonymization detection services help analysts identify users or systems attempting to conceal their identity or origin during network communication.
+## 2. Anonymization Detection Services
+- help analysts identify users or systems attempting to conceal their identity or origin during network communication.
 
 These services assist investigations involving:
 
@@ -51,9 +45,9 @@ Analysts use these tools to determine whether suspicious traffic originates from
 
 ---
 
-## Identity Inventory
+## 3. Identity Inventory
 
-Identity inventory systems provide visibility into organizational users, accounts, and access privileges.
+- has data or information about organizational users, accounts, and access privileges
 
 SOC analysts reference identity information to:
 
@@ -88,4 +82,3 @@ Common SOC use cases include:
 - Network anomaly detection
 - Incident timeline reconstruction
 
-Effective SIEM usage allows SOC teams to maintain operational visibility and rapidly detect potential threats.
