@@ -77,6 +77,57 @@ By ingesting logs, metrics, and event telemetry, Splunk enables analysts to:
 
 Common SOC use cases include:
 
+
+# WORKBOOK WORKFLOW:
+flowchart TB
+
+%% -----------------------------
+%% Enrichment Stage
+%% -----------------------------
+subgraph ENRICHMENT["Enrichment Stage"]
+direction LR
+A([Receive Alert]) --> B[Use HR directory to confirm expected user location]
+B --> C[Lookup login IP in Threat Intelligence services]
+C --> D[Lookup login IP in anonymization detection services]
+end
+
+%% -----------------------------
+%% Investigation Stage
+%% -----------------------------
+subgraph INVESTIGATION["Investigation Stage"]
+direction LR
+D --> E{Login IP confirmed malicious?}
+E -- Yes --> ESC_R([Escalation Stage])
+
+E -- No --> F[Use Splunk to review user actions after the login]
+F --> G{Any suspicious actions<br/>(e.g., MFA reset)?}
+
+G -- Yes --> ESC_L([Escalation Stage])
+
+G -- No --> H[Run Splunk "Login Timeline"<br/>dashboard (last 90 days)]
+H --> I{Login via VPN or<br/>from atypical location?}
+
+I -- No --> J{Login time atypical<br/>for the user?}
+J -- No --> FP[Close alert as False Positive]
+
+J -- Yes --> K[Contact the user and proceed<br/>based on the response]
+K --> DEC{Confirmed suspicious?}
+DEC -- No --> FP
+DEC -- Yes --> ESC_B([Escalation Stage])
+
+I -- Yes --> K
+end
+
+%% -----------------------------
+%% Escalation Stage
+%% -----------------------------
+subgraph ESCALATION["Escalation Stage"]
+direction LR
+ESC_R --> L[Write alert report and escalate to L2 analyst]
+ESC_L --> L
+ESC_B --> L
+end
+
 - Failed authentication monitoring
 - Suspicious process execution analysis
 - Network anomaly detection
