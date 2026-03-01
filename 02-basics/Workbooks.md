@@ -91,7 +91,7 @@ flowchart TB
 
 subgraph ENRICHMENT["Enrichment Stage"]
 direction LR
-A([Receive Alert]) --> B[Confirm expected user location using HR directory]
+A([Receive Alert]) --> B[Confirm expected user location using Identity Inventory]
 B --> C[Check login IP in threat intelligence services]
 C --> D[Check login IP in anonymization detection services]
 end
