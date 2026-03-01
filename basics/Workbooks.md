@@ -85,7 +85,8 @@ Common SOC use cases include:
 -----
 
 # WORKBOOK WORKFLOW:
-```mermaid
+(This is a sample of how a workbook would look like)
+```
 flowchart TB
 
 subgraph ENRICHMENT["Enrichment Stage"]
@@ -123,4 +124,5 @@ ESC_R --> L[Write alert report and escalate to L2 analyst]
 ESC_L --> L
 ESC_B --> L
 end
-```mermaid
+
+```
