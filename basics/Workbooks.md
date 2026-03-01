@@ -88,46 +88,35 @@ Common SOC use cases include:
 ```mermaid
 flowchart TB
 
-%% -----------------------------
-%% Enrichment Stage
-%% -----------------------------
 subgraph ENRICHMENT["Enrichment Stage"]
 direction LR
-A([Receive Alert]) --> B[Use HR directory to confirm expected user location]
-B --> C[Lookup login IP in Threat Intelligence services]
-C --> D[Lookup login IP in anonymization detection services]
+A([Receive Alert]) --> B[Confirm expected user location using HR directory]
+B --> C[Check login IP in threat intelligence services]
+C --> D[Check login IP in anonymization detection services]
 end
 
-%% -----------------------------
-%% Investigation Stage
-%% -----------------------------
 subgraph INVESTIGATION["Investigation Stage"]
 direction LR
-D --> E{Login IP confirmed malicious?}
+D --> E{Is login IP malicious}
 E -- Yes --> ESC_R([Escalation Stage])
 
-E -- No --> F[Use Splunk to review user actions after the login]
-F --> G{Any suspicious actions<br/>(e.g., MFA reset)?}
-
+E -- No --> F[Use Splunk to review actions after login]
+F --> G{Any suspicious actions like MFA reset}
 G -- Yes --> ESC_L([Escalation Stage])
 
-G -- No --> H[Run Splunk "Login Timeline"<br/>dashboard (last 90 days)]
-H --> I{Login via VPN or<br/>from atypical location?}
+G -- No --> H[Review Login Timeline dashboard in Splunk for 90 days]
+H --> I{Login via VPN or unusual location}
+I -- No --> J{Login time unusual for user}
+J -- No --> FP[Close alert as false positive]
 
-I -- No --> J{Login time atypical<br/>for the user?}
-J -- No --> FP[Close alert as False Positive]
-
-J -- Yes --> K[Contact the user and proceed<br/>based on the response]
-K --> DEC{Confirmed suspicious?}
+J -- Yes --> K[Contact user and proceed based on response]
+K --> DEC{Suspicious confirmed}
 DEC -- No --> FP
 DEC -- Yes --> ESC_B([Escalation Stage])
 
 I -- Yes --> K
 end
 
-%% -----------------------------
-%% Escalation Stage
-%% -----------------------------
 subgraph ESCALATION["Escalation Stage"]
 direction LR
 ESC_R --> L[Write alert report and escalate to L2 analyst]
