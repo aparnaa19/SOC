@@ -77,8 +77,15 @@ By ingesting logs, metrics, and event telemetry, Splunk enables analysts to:
 
 Common SOC use cases include:
 
+- Failed authentication monitoring
+- Suspicious process execution analysis
+- Network anomaly detection
+- Incident timeline reconstruction
+
+-----
 
 # WORKBOOK WORKFLOW:
+```mermaid
 flowchart TB
 
 %% -----------------------------
@@ -127,9 +134,4 @@ ESC_R --> L[Write alert report and escalate to L2 analyst]
 ESC_L --> L
 ESC_B --> L
 end
-
-- Failed authentication monitoring
-- Suspicious process execution analysis
-- Network anomaly detection
-- Incident timeline reconstruction
-
+```mermaid
