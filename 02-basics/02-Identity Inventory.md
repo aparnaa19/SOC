@@ -25,9 +25,15 @@ It includes:
 
 ## Microsoft Entra: 
 
+![microsoftentra](assets/microsoft-entra.png)
+
 ## Okta:
 
+![okta](assets/okta.png)
+
 ## Active Directory Users and Computers: 
+
+![AD](assets/activedirectory.png)
 
 ----
 
