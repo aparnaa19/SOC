@@ -78,11 +78,11 @@ or
 ## Risk Areas in Identity Inventory
 
 SOC pays special attention to:
-•	Accounts without MFA
-•	Privileged accounts
-•	Service accounts with admin rights
-•	Dormant accounts
-•	Recently modified roles
+- Accounts without MFA
+- Privileged accounts
+- Service accounts with admin rights
+- Dormant accounts
+- Recently modified roles
 
 
 
