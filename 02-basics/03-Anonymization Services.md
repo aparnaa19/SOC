@@ -53,3 +53,39 @@ But it increases risk scoring.
 ## Demo:
 Let’ s take a malicious Ip from (abuse Ip ) and pretend that’s the alert Ip that we got.
 
+1.	Proxy Type: No VPN or Proxy Detected
+- This means:
+  -	It is not identified as a consumer VPN.
+  -	It is not flagged as a Tor exit node.
+  -	It is not classified as a residential proxy.
+- This does not mean it is safe.
+- It just means it’s not a traditional anonymity service like NordVPN or Tor.
+
+2.	Usage Type: (DCH) Data Center / Web Hosting / Transit
+- It tells us:
+  -	This IP belongs to a data center / hosting provider.
+  -	UCLOUD infrastructure.
+- In SOC terms:
+  -	Hosting infrastructure = higher abuse probability than residential ISP.
+
+3.	ASN: AS135377
+4.	AS: UCLOUD Information Technology (HK) Limited
+  -	Matches registry data.
+  -	That strengthens consistency across intelligence sources.
+
+5.	Threat: SCANNER
+-	This is critical.
+-	This means: The IP has behavior consistent with scanning activity.
+-	Scanning typically includes:
+  -  Port scanning
+  -  Service enumeration
+  -  Reconnaissance
+  -  Credential brute-force attempts
+
+6.	Fraud Score: 99
+-	That’s extremely high.
+-	Most scoring systems use 0 - 100.
+-	99 suggests: Very high probability of abusive or automated activity.
+-	This is strong corroborating evidence.
+
+
