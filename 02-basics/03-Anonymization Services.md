@@ -53,6 +53,12 @@ But it increases risk scoring.
 ## Demo:
 Let’ s take a malicious Ip from (abuse Ip ) and pretend that’s the alert Ip that we got.
 
+![workflow](assets/abuseip1.png)
+
+Checking that IP in IP2Proxy:
+
+![workflow](assets/ip2proxy.png)
+
 1.	Proxy Type: No VPN or Proxy Detected
 - This means:
   -	It is not identified as a consumer VPN.
