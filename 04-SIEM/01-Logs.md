@@ -7,7 +7,7 @@
 
 ----
 
-# types of logs 
+# Types of Logs 
 
 logs are generally divided into 2 categories:
 - host centric 
@@ -25,7 +25,7 @@ logs are generally divided into 2 categories:
 
 ----
 
-# problem with too many logs 
+# Problem with logs 
 
 - Numerous Log Sources 
 	- examining the logs on each device one by one in case of an incident can be tedious.
