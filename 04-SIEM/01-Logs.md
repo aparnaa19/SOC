@@ -1,4 +1,4 @@
-## Logs 
+# Logs 
 
 - multiple devices in a network communicate with one another. 
 - these activities are generated as logs 
@@ -7,7 +7,7 @@
 
 ----
 
-# Types of Logs 
+## Types of Logs 
 
 logs are generally divided into 2 categories:
 - host centric 
@@ -25,7 +25,7 @@ logs are generally divided into 2 categories:
 
 ----
 
-# Problem with logs 
+## Problem with logs 
 
 - Numerous Log Sources 
 	- examining the logs on each device one by one in case of an incident can be tedious.
