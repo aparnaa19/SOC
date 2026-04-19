@@ -39,16 +39,16 @@ Common targets include:
 
 Windows has a simple hierarchy:
 
-**System**
+- **System**
   
   ↓
-**Administrator**
+- **Administrator**
   
   ↓
-**Standard User**
+- **Standard User**
   
   ↓
-**Guest**
+- **Guest**
 
 | Account Type   | Can do                                                                                     |
 |----------------|--------------------------------------------------------------------------------------------|
