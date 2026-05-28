@@ -16,3 +16,5 @@
 	- correlation of logs: finds relationship between different logs 
 	- real time alerting: detection rules can be made and alerts can be triggered to notify analyst
 	- Dashboards and Reporting: the summary of the analysis can be in the form of analysis
+
+ - popular siem solutions : IBM QRadar, ArcSight ESM, FortiSIEM, Splunk, etc
