@@ -107,21 +107,7 @@ This is the most obvious pattern. sqlmap sends requests in a very specific seque
 
 ---
 
-## 2. What We Did Today - In Log Form
-
-Let me show you exactly what your uncle's Azure logs would show from our session today:
-
-```text
-13:30:01  POST /LoginAuth  {"EmailId":"'","Password":"test"}                          401
-13:30:15  POST /LoginAuth  {"EmailId":"' OR 1=1 --","Password":"test"}                401
-13:30:28  POST /LoginAuth  {"EmailId":"' OR '1'='1' --","Password":"test"}            401
-13:30:41  POST /LoginAuth  {"EmailId":"admin@insops.com","Password":"test"}            401
-13:30:55  POST /LoginAuth  {"EmailId":"admin@insops.com' --","Password":"test"}        401
-13:31:10  POST /LoginAuth  {"EmailId":"admin@insops.com","Password":"' OR 1=1 --"}    401
-13:31:22  POST /LoginAuth  {"EmailId":"' OR SLEEP(5) --","Password":"test"}           401  5043ms
-```
-
-A SOC analyst looking at these logs would immediately see:
+## 2. A SOC analyst looking at these logs would immediately see:
 
 - Single IP hitting the same endpoint repeatedly
 - SQL keywords in the request body
@@ -338,38 +324,3 @@ Ten "Invalid Password" responses to the same IP means they found a valid account
 
 ---
 
-## 7. Quick Reference - SQLi IOCs for SOC
-
-Print this and keep it:
-
-### CHARACTERS TO ALERT ON IN PARAMETERS:
-
-```text
-'  "  --  #  ;  /*  */
-```
-
-### SQL KEYWORDS TO ALERT ON:
-
-```text
-UNION    SELECT    INSERT    UPDATE    DELETE
-DROP     SLEEP     WAITFOR   BENCHMARK
-information_schema    table_name    column_name
-extractvalue    load_file    exp(~
-```
-
-### BEHAVIORAL INDICATORS:
-
-- 50+ requests to same endpoint in 60 seconds
-- Sequential parameter variations
-- Response time spikes of 5+ seconds
-- Response size anomalies
-- 500 errors suddenly appearing
-- Same IP, many different SQL payloads
-
-### AUTOMATED TOOL SIGNATURES:
-
-```text
-sqlmap  → ORDER BY 1,2,3 sequence then UNION NULL,NULL,NULL
-Havij   → specific payload formatting
-Burp    → scanner sends payloads with specific patterns
-```
